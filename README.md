@@ -1,5 +1,7 @@
 # OES académico — Práctica Guiada N.° 08 (v2)
 
+**Aplicación en línea:** https://jenaru0-oes-observatorio-undc-app-o1musb.streamlit.app
+
 Prototipo local de un **Observatorio de Educación Superior** con Python, SQLite y Streamlit
 (curso Inteligencia Artificial Aplicada al Marketing Digital, UNDC, 2026-II).
 
