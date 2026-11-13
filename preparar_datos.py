@@ -1,32 +1,38 @@
-import sqlite3
-from pathlib import Path
+"""Paso 4: crea la base y carga los 3 registros DEMOSTRATIVOS de la guía."""
 
-DB = Path(__file__).with_name("oes.db")
+from datos import conectar, insertar, ruta_db
 
-with sqlite3.connect(DB) as con:
-    con.execute("""CREATE TABLE IF NOT EXISTS noticias (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        titulo TEXT NOT NULL,
-        institucion TEXT NOT NULL,
-        categoria TEXT NOT NULL,
-        fuente TEXT NOT NULL,
-        fecha TEXT NOT NULL,
-        url TEXT NOT NULL UNIQUE,
-        resumen TEXT NOT NULL
-    )""")
-    datos = [
-        ("Ejemplo: convocatoria de becas", "PRONABEC", "Ente rector",
-         "Portal institucional (ejemplo)", "2026-11-06",
-         "https://www.pronabec.gob.pe/", "Registro didáctico: verificar nota original."),
-        ("Ejemplo: actividad de investigación", "UNMSM", "Universidad pública",
-         "Portal institucional (ejemplo)", "2026-11-06",
-         "https://www.unmsm.edu.pe/", "Registro didáctico: verificar noticia original."),
-        ("Ejemplo: programa académico", "PUCP", "Universidad privada",
-         "Portal institucional (ejemplo)", "2026-11-05",
-         "https://www.pucp.edu.pe/", "Registro didáctico: verificar noticia original.")
-    ]
-    con.executemany("""INSERT OR IGNORE INTO noticias
-        (titulo,institucion,categoria,fuente,fecha,url,resumen)
-        VALUES (?,?,?,?,?,?,?)""", datos)
+EJEMPLOS = [
+    {
+        "titulo": "Ejemplo: convocatoria de becas",
+        "institucion": "PRONABEC",
+        "categoria": "Ente rector",
+        "fuente": "Portal institucional (ejemplo)",
+        "fecha": "2026-11-06",
+        "url": "https://www.pronabec.gob.pe/",
+        "resumen": "Registro didáctico: verificar nota original.",
+    },
+    {
+        "titulo": "Ejemplo: actividad de investigación",
+        "institucion": "UNMSM",
+        "categoria": "Universidad pública",
+        "fuente": "Portal institucional (ejemplo)",
+        "fecha": "2026-11-06",
+        "url": "https://www.unmsm.edu.pe/",
+        "resumen": "Registro didáctico: verificar noticia original.",
+    },
+    {
+        "titulo": "Ejemplo: programa académico",
+        "institucion": "PUCP",
+        "categoria": "Universidad privada",
+        "fuente": "Portal institucional (ejemplo)",
+        "fecha": "2026-11-05",
+        "url": "https://www.pucp.edu.pe/",
+        "resumen": "Registro didáctico: verificar noticia original.",
+    },
+]
 
-print("Base creada:", DB)
+if __name__ == "__main__":
+    with conectar() as con:
+        nuevas = insertar(con, [{**e, "estado": "Ejemplo didáctico"} for e in EJEMPLOS])
+    print("Base creada:", ruta_db(), f"| registros nuevos: {nuevas}")
