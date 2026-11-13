@@ -1,0 +1,18 @@
+# Estilo «minimalismo suizo» recomendado por la skill ui-ux-pro-max para tableros:
+# claro, de alto contraste (texto #0F172A sobre blanco = 17,9:1) y con un solo color de acento.
+# Se usa la fuente del sistema para no depender de servicios externos (requisito RNF02).
+[theme]
+base = "light"
+primaryColor = "#1E3A8A"
+backgroundColor = "#FFFFFF"
+secondaryBackgroundColor = "#F1F5F9"
+textColor = "#0F172A"
+borderColor = "#E2E8F0"
+showWidgetBorder = true
+baseRadius = "0.5rem"
+
+[client]
+toolbarMode = "minimal"
+
+[browser]
+gatherUsageStats = false
