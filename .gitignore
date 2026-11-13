@@ -3,6 +3,4 @@ __pycache__/
 .pytest_cache/
 .ruff_cache/
 *.log
-# La base se genera con los scripts; se entrega aparte en el ZIP
-oes.db
 evidencias/*.csv
