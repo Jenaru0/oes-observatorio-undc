@@ -50,5 +50,5 @@ python evidencias/generar_evidencias.py   # con el tablero corriendo: regenera P
 | `evidencias/` | Capturas y salidas de P1–P6 y de la bandeja, CSV exportados y diagrama |
 
 Los 3 registros de ejemplo apuntan a portadas institucionales y tienen trazabilidad 0:
-deben retirarse antes de cualquier uso institucional. La base `oes.db` no se versiona en git
-(se genera con los scripts) y se entrega aparte en el ZIP.
+deben retirarse antes de cualquier uso institucional. La base `oes.db` se incluye en el repositorio
+como base de demostración, para que la versión en línea muestre los mismos datos.

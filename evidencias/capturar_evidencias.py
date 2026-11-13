@@ -100,7 +100,7 @@ with sync_playwright() as p:
             "La Dirección de Responsabilidad Social Universitaria de la UNDC dio la bienvenida, el 21 de "
             "octubre, a los voluntarios del programa YANAPAY 2026-II."
         )
-        form.get_by_label("Verificado por").fill("Equipo de la práctica")
+        form.get_by_label("Verificado por").fill("Jhonatan Napanga Ruiz")
         form.get_by_text("Abrí el enlace y el titular y la fecha coinciden con la fuente").click()
         form.screenshot(path=CARPETA / "N2_formulario_aprobacion.png")
         form.get_by_role("button", name="Aprobar").click()

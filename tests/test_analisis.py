@@ -49,4 +49,10 @@ def test_alertas_y_radar(db_completa):
     avisos = analisis.alertas(df)
     assert list(avisos["institucion"]) == ["SUNEDU"]  # «Plan de Supervisión»
     radar = analisis.radar(df)
-    assert radar["noticias"].sum() >= len(df)
+    assert radar["noticias"].sum() >= (df["estado"] == "Verificada").sum()  # una noticia puede tener varios temas
+
+
+def test_radar_solo_cuenta_noticias_verificadas(db_completa):
+    radar = analisis.radar(tabla(db_completa))
+    assert set(radar["institucion"]) == {"SUNEDU", "UNDC", "PUCP"}  # sin PRONABEC ni UNMSM de ejemplo
+    assert analisis.SIN_TEMA not in set(radar["tema"])

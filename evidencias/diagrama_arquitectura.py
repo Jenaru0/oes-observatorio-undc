@@ -13,7 +13,7 @@ ETAPAS = [
     (
         "1. FUENTES OFICIALES",
         "Agencia Andina (Sunedu) · portal UNDC · PuntoEdu PUCP",
-        "gob.pe (MINEDU, SUNEDU) rechazó el acceso: HTTP 418",
+        "gob.pe (MINEDU, SUNEDU) bloqueó nuestras herramientas automatizadas (HTTP 418)",
         FONDO,
     ),
     (

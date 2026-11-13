@@ -1,5 +1,5 @@
-# Estilo «minimalismo suizo» recomendado por la skill ui-ux-pro-max para tableros:
-# claro, de alto contraste (texto #0F172A sobre blanco = 17,9:1) y con un solo color de acento.
+# Estilo minimalista para tableros: claro, de alto contraste (texto #0F172A sobre blanco = 17,9:1,
+# por encima del 4,5:1 que exige WCAG 2.2) y con un solo color de acento.
 # Se usa la fuente del sistema para no depender de servicios externos (requisito RNF02).
 [theme]
 base = "light"

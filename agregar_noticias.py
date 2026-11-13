@@ -7,7 +7,7 @@ original); los resúmenes son de redacción propia. Fecha = fecha de publicació
 
 from datos import conectar, insertar
 
-VERIFICACION = {"estado": "Verificada", "verificado_por": "Equipo de la práctica", "fecha_verificacion": "2026-11-12"}
+VERIFICACION = {"estado": "Verificada", "verificado_por": "Jhonatan Napanga Ruiz", "fecha_verificacion": "2026-11-12"}
 
 VERIFICADAS = [
     {

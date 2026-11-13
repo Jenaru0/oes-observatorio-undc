@@ -132,7 +132,8 @@ def filtrar(df: pd.DataFrame, categorias, estados, *, desde=None, hasta=None, bu
 
 
 def radar(df: pd.DataFrame) -> pd.DataFrame:
-    """Conteo institución × tema, en formato largo para el mapa de calor."""
+    """Conteo institución × tema de las noticias VERIFICADAS (los ejemplos no representan a nadie)."""
+    df = df[df["estado"] == "Verificada"]
     if df.empty:
         return pd.DataFrame(columns=["institucion", "tema", "noticias"])
     largo = df[["institucion", "temas"]].explode("temas").rename(columns={"temas": "tema"})

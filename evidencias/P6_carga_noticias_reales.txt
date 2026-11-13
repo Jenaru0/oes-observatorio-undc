@@ -2,7 +2,7 @@ $ python agregar_noticias.py
 Noticias antes: 3 | después: 7 | agregadas: 4
 
 $ Noticias verificadas
-  (7, '2026-10-08', 'SUNEDU', 'Equipo de la práctica', 'https://andina.pe/agencia/noticia-sunedu-verifica-condiciones-calidad-universidades-publicas-y-privadas-del-pais-1095135.aspx')
-  (8, '2026-10-23', 'UNDC', 'Equipo de la práctica', 'https://web.undc.edu.pe/undc-y-universidad-andina-del-cusco-suscriben-convenio-de-cooperacion-interinstitucional/')
-  (9, '2026-10-23', 'UNDC', 'Equipo de la práctica', 'https://web.undc.edu.pe/el-camino-a-la-undc-comienza-hoy-cepre-undc-incio-el-ciclo-ordinario-2026-ii-con-vacantes-de-ingreso-directo/')
-  (10, '2026-11-10', 'PUCP', 'Equipo de la práctica', 'https://puntoedu.pucp.edu.pe/vida-universitaria/institucional/hay-festival-arequipa-2026-la-pucp-debates-sobre-identidad-e-ia/')
+  (7, '2026-10-08', 'SUNEDU', 'Jhonatan Napanga Ruiz', 'https://andina.pe/agencia/noticia-sunedu-verifica-condiciones-calidad-universidades-publicas-y-privadas-del-pais-1095135.aspx')
+  (8, '2026-10-23', 'UNDC', 'Jhonatan Napanga Ruiz', 'https://web.undc.edu.pe/undc-y-universidad-andina-del-cusco-suscriben-convenio-de-cooperacion-interinstitucional/')
+  (9, '2026-10-23', 'UNDC', 'Jhonatan Napanga Ruiz', 'https://web.undc.edu.pe/el-camino-a-la-undc-comienza-hoy-cepre-undc-incio-el-ciclo-ordinario-2026-ii-con-vacantes-de-ingreso-directo/')
+  (10, '2026-11-10', 'PUCP', 'Jhonatan Napanga Ruiz', 'https://puntoedu.pucp.edu.pe/vida-universitaria/institucional/hay-festival-arequipa-2026-la-pucp-debates-sobre-identidad-e-ia/')

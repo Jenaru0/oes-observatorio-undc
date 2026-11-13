@@ -9,7 +9,7 @@ import streamlit as st
 import analisis
 import datos
 
-AZUL = "#2a78d6"  # tono único de las barras (paleta validada de la skill dataviz)
+AZUL = "#2a78d6"  # tono único de las barras: contraste 4,4:1 sobre blanco
 RAMPA = ["#cde2fb", "#104281"]  # rampa secuencial azul para el mapa de calor
 GRILLA = "#e2e8f0"
 ESTADOS_VISIBLES = ["Verificada", "Ejemplo didáctico"]
@@ -96,7 +96,8 @@ c5.metric(
     "Trazabilidad media",
     f"{filtrado['trazabilidad'].mean():.0f} / 100" if len(filtrado) else "—",
     border=True,
-    help="Promedio del índice de trazabilidad (ver pestaña Metodología).",
+    help="Promedio del índice de trazabilidad (ver pestaña Metodología). Los ejemplos de la guía valen 0 "
+    "y bajan el promedio: quite «Ejemplo didáctico» en los filtros para ver solo las noticias verificadas.",
 )
 
 pendientes = base[base["estado"] == "Pendiente"]
@@ -144,35 +145,41 @@ with tab_panorama:
 
         st.subheader("Radar de temas para marketing educativo")
         st.caption(
-            "Qué comunica cada institución, según palabras clave del título y del resumen. "
-            "Describe actividad comunicacional, no calidad académica."
+            "Qué comunica cada institución, según palabras clave del título y del resumen. Solo cuenta "
+            "noticias verificadas (no los ejemplos de la guía) y describe actividad comunicacional, no calidad."
         )
         conteo = analisis.radar(filtrado)
-        orden_temas = [*analisis.TEMAS, analisis.SIN_TEMA]
-        celdas = alt.Chart(conteo).encode(
-            y=alt.Y(
-                "tema:N",
-                sort=orden_temas,
-                scale=alt.Scale(domain=orden_temas),
-                title=None,
-                axis=alt.Axis(labelLimit=220, labelFontSize=13),
-            ),
-            x=alt.X("institucion:N", title=None, axis=alt.Axis(orient="top", labelAngle=0, labelFontSize=13)),
-            tooltip=[
-                alt.Tooltip("institucion:N", title="Institución"),
-                alt.Tooltip("tema:N", title="Tema"),
-                alt.Tooltip("noticias:Q", title="Noticias"),
-            ],
-        )
-        tope = max(2, int(conteo["noticias"].max()))
-        mapa = celdas.mark_rect(cornerRadius=4, stroke="white", strokeWidth=2, opacity=1).encode(
-            color=alt.Color("noticias:Q", legend=None, scale=alt.Scale(domain=[0, tope], range=RAMPA))
-        )
-        numeros = celdas.mark_text(fontSize=14, fontWeight="bold").encode(  # texto claro solo sobre celdas oscuras
-            text="noticias:Q",
-            color=alt.condition(alt.datum.noticias >= tope * 0.6, alt.value("white"), alt.value("#0f172a")),
-        )
-        st.altair_chart((mapa + numeros).properties(height=44 * len(orden_temas)), width="stretch")
+        if conteo.empty:
+            st.info(
+                "El radar se llena con noticias verificadas; con los filtros actuales no hay ninguna.",
+                icon=":material/radar:",
+            )
+        else:
+            orden_temas = [*analisis.TEMAS, analisis.SIN_TEMA]
+            celdas = alt.Chart(conteo).encode(
+                y=alt.Y(
+                    "tema:N",
+                    sort=orden_temas,
+                    scale=alt.Scale(domain=orden_temas),
+                    title=None,
+                    axis=alt.Axis(labelLimit=220, labelFontSize=13),
+                ),
+                x=alt.X("institucion:N", title=None, axis=alt.Axis(orient="top", labelAngle=0, labelFontSize=13)),
+                tooltip=[
+                    alt.Tooltip("institucion:N", title="Institución"),
+                    alt.Tooltip("tema:N", title="Tema"),
+                    alt.Tooltip("noticias:Q", title="Noticias"),
+                ],
+            )
+            tope = max(2, int(conteo["noticias"].max()))
+            mapa = celdas.mark_rect(cornerRadius=4, stroke="white", strokeWidth=2, opacity=1).encode(
+                color=alt.Color("noticias:Q", legend=None, scale=alt.Scale(domain=[0, tope], range=RAMPA))
+            )
+            numeros = celdas.mark_text(fontSize=14, fontWeight="bold").encode(  # texto claro solo en celdas oscuras
+                text="noticias:Q",
+                color=alt.condition(alt.datum.noticias >= tope * 0.6, alt.value("white"), alt.value("#0f172a")),
+            )
+            st.altair_chart((mapa + numeros).properties(height=44 * len(orden_temas)), width="stretch")
 
 
 # ----------------------------------------------------------------------------- noticias
