@@ -1,0 +1,10 @@
+$ python preparar_datos.py   (1.a ejecución)
+Base creada: C:\Proyectos\oes_laboratorio\oes.db | registros nuevos: 3
+
+$ python preparar_datos.py   (2.a ejecución)
+Base creada: C:\Proyectos\oes_laboratorio\oes.db | registros nuevos: 0
+
+$ Registros en la base
+  (1, 'PRONABEC', 'Ejemplo didáctico', 'https://www.pronabec.gob.pe/')
+  (2, 'UNMSM', 'Ejemplo didáctico', 'https://www.unmsm.edu.pe/')
+  (3, 'PUCP', 'Ejemplo didáctico', 'https://www.pucp.edu.pe/')

@@ -1,0 +1,13 @@
+$ python capturar_candidatas.py
+Portal institucional UNDC: 4 candidatas nuevas en la bandeja
+PuntoEdu PUCP: 4 candidatas nuevas en la bandeja
+
+$ Noticias pendientes de revisión
+  (11, '2026-10-23', 'UNDC', 'COMUNICADO: CUARTO PROCESO DE SOLICITUD DE CARNÉ UNIVERSITARIO 2026')
+  (12, '2026-10-23', 'UNDC', 'UNDC DA LA BIENVENIDAD A LOS VOLUNTARIOS YANAPAY 2026-II Y REAFIRMA SU COMPROMISO CON LA RESPONSABILIDAD SOCIAL')
+  (14, '2026-10-23', 'UNDC', 'UNDC Y EL CONGRESO DE LA REPUBLICA ABREN CAMINOS PARA NUEVAS OPORTUNIDADES EN CIENCIA, INNOVACIÓN Y DESARROLLO TECNOLÓGICO')
+  (15, '2026-10-23', 'UNDC', 'UNDC PARTICIPA EN IMPORTANTE ENCUENTRO INTERNACIONAL DE CIENCIAS DE LA SALUD')
+  (16, '2026-11-11', 'PUCP', 'Paz, dignidad humana, y cuidado de los pobres y excluidos: las claves del pontificado del Papa León XIV en tiempos adversos')
+  (17, '2026-11-11', 'PUCP', 'Bienvenido al Perú, Papa León XIV')
+  (19, '2026-11-10', 'PUCP', 'La literatura más allá de los libros: estudiantes exploran los oficios de la literatura en el Hay Festival')
+  (20, '2026-11-10', 'PUCP', '«Chiclayano soy»: el libro que reúne 14 historias de la tierra del Papa León XIV')
